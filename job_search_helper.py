@@ -30,7 +30,7 @@ from requests import get, Response
 #
 # Samples:
 # Windows (use \\ instead of \): "C:\\folder1\\foder2\\...\\your_desired_folder_name_to_save_everything_there"
-# Linux/Max: "directory1/directory2/.../your_desired_directory_name_to_save_everything_there"
+# Linux/Mac: "directory1/directory2/.../your_desired_directory_name_to_save_everything_there"
 root_dir_abs_path = 'your_desired_folder_name_to_save_everything_there'
 
 # the list of your template files such as resume and cover letter
@@ -69,9 +69,8 @@ def main():
 
     print_log('Copying the required template files...')
     for file_ in required_files:
-        if not validate_path(file_):
-            continue
-        copy(file_, applied_job_dir)
+        if validate_path(file_):
+            copy(file_, applied_job_dir)
 
     print_log('Done!')
 
